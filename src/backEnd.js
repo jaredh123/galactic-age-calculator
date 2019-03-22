@@ -13,18 +13,16 @@ $(document).ready(function() {
 
     var earthYears = function() {
       var dayCount = month[m1 - 1] - d1 + date.getDate();
-      var mCount;
-      var yrCount;
 
-      if ((month.length - m1 + date.getMonth() -1) >= 12) {
-        mCount = month.length - m1 + date.getMonth() - 13;//Earth month count part 1/2
+      if ((month.length - m1 + (date.getMonth() + 1) - 1) >= 12) {
+        mCount = month.length - m1 + (date.getMonth() + 1) - 13;//Earth month count part 1/2
         yrCount = date.getFullYear() - yr1;//Earth year count part 1/2
       }
       else {
-        mCount = month.length - m1 + date.getMonth() - 1;//Earth month count part 2/2
+        mCount = month.length - m1 + (date.getMonth() + 1) - 1;//Earth month count part 2/2
         yrCount = date.getFullYear() - yr1 - 1;//Earth year part 2/2
       }
-      if (d1 > month[m1 - 1] || m1 > (month.length) || date.getDate() > month[date.getMonth() - 1] || date.getMonth() > (month.length)) {
+      if (d1 > month[m1 - 1] || m1 > (month.length) || date.getDate() > month[(date.getMonth() + 1) - 1] || (date.getMonth() + 1) > (month.length)) {
         return "That date doesn't exist!";//False dates
       }
       else {
