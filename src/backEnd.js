@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   // var health = $("#health").val();
 
-  $("#runEarth").submit(function(event) {
+  $("#run").submit(function(event) {
     event.preventDefault();
 
     var d1 = parseInt($("#day").val());

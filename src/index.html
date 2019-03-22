@@ -1,9 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/scripts.js"></script>
     <title>galactic-age-calculator</title>
   </head>
   <body>
-
+    <div class="container">
+      <h1>galactic-age-calculator</h1>
+      <h4>Enter your Earth birth date below</h4>
+      <label>Birth day:</label>
+      <input type="number" id="day" required>
+      <br>
+      <br>
+      <label>Birth month:</label>
+      <input type="number" id="month" required>
+      <br>
+      <br>
+      <label>(Earth) Year:</label>
+      <input type="number" id="year" required>
+      <br>
+      <br>
+      <label>Are you a healthy person?</label>
+      <select id="health" class="form">
+        <option value="0">Average</option>
+        <option value="1">Yes</option>
+        <option value="2">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Celestial body:</label>
+      <select id="CelestialBody" class="form">
+        <option value="0">--Select Option--</option>
+        <option value="1">Sun</option>
+        <option value="2">Mercury</option>
+        <option value="3">Venus</option>
+        <option value="4">Earth</option>
+        <option value="5">Mars</option>
+        <option value="6">Jupiter</option>
+      </select>
+      <br>
+      <br>
+      <span id="result"></span>
+      <br>
+      <br>
+      <form id="run">
+        <button type="submit" name="button">Submit</button>
+      </form>
+    </div>
   </body>
 </html>
