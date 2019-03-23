@@ -13,6 +13,43 @@ $(document).ready(function() {
     var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
     var celestialAge = function() {
+
+      var planet = function() {
+        if (celestialBody == 2) {
+          return "Mercury";
+        }
+        else if (celestialBody == 3) {
+          return "Venus";
+        }
+        else if (celestialBody == 4) {
+          return "Earth";
+        }
+        else if (celestialBody == 5) {
+          return "Mars";
+        }
+        else if (celestialBody == 6) {
+          return "Jupiter";
+        }
+      }
+
+      var yearMultiplier = function() {
+        if (celestialBody == 2) {
+          return 0.24;
+        }
+        else if (celestialBody == 3) {
+          return 0.62;
+        }
+        else if (celestialBody == 4) {
+          return 1;
+        }
+        else if (celestialBody == 5) {
+          return 1.88;
+        }
+        else if (celestialBody == 6) {
+          return 11.86;
+        }
+      }
+
       var lifeDuration = function() {
         var dayCount = month[m1 - 1] - d1 + date.getDate();
         var yrCount = date.getFullYear() - yr1 - 1;
@@ -45,140 +82,32 @@ $(document).ready(function() {
         alert("Please select a celestial body");
       }
       else if (celestialBody == 1) {
-        return "the Sun";
+        return "How are you still alive? This is the Sun. All that you've lived is past your expectancy. The entire " + lifeDuration().toFixed(2) + " years of your life don't make sense.";
       }
-      else if (celestialBody == 2) {
-        if (health == 0) {
-          if (lifeDuration() < 80) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((80 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 80) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (80 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
+      else if (health == 0 && celestialBody > 1) {
+        if (lifeDuration() < 80) {
+          return "You are " + (lifeDuration() / yearMultiplier()).toFixed(2) + " years old on " + planet + " and have about " + parseFloat((80 * yearMultiplier()) - (lifeDuration() / yearMultiplier())).toFixed(2) + " left. Enjoy your remaining years.";
         }
-        else if (health == 1) {
-          if (lifeDuration() < 100) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((100 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 100) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (100 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
-        }
-        else {
-          if (lifeDuration() < 5) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((5 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 5) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (5 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
+        else if (lifeDuration() >= 80) {
+          return "You are " + (lifeDuration() / yearMultiplier()).toFixed(2) + " years old on " + planet + " and have lived " + parseFloat((lifeDuration() / yearMultiplier()) - (80 * yearMultiplier())).toFixed(2) + " years past your life expectancy. Good luck not living in fear.";
         }
       }
-      else if (celestialBody == 3) {
-        if (health == 0) {
-          if (lifeDuration() < 80) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((80 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 80) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (80 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
+      else if (health == 1 && celestialBody > 1) {
+        if (lifeDuration() < 100) {
+          return "You are " + (lifeDuration() / yearMultiplier()).toFixed(2) + " years old on " + planet + " and have about " + parseFloat((100 * yearMultiplier()) - (lifeDuration() / yearMultiplier())).toFixed(2) + " left. Enjoy your remaining years.";
         }
-        else if (health == 1) {
-          if (lifeDuration() < 100) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((100 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 100) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (100 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
-        }
-        else {
-          if (lifeDuration() < 5) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((5 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 5) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (5 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
+        else if (lifeDuration() >= 100) {
+          return "You are " + (lifeDuration() / yearMultiplier()).toFixed(2) + " years old on " + planet + " and have lived " + parseFloat((lifeDuration() / yearMultiplier()) - (100 * yearMultiplier())).toFixed(2) + " years past your life expectancy. Good luck not living in fear.";
         }
       }
-      else if (celestialBody == 4) {
-        if (health == 0) {
-          if (lifeDuration() < 80) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((80 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 80) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (80 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
+      else if (health == 2 && celestialBody > 1) {
+        if (lifeDuration() < 5) {
+          return "You are " + (lifeDuration() / yearMultiplier()).toFixed(2) + " years old on " + planet + " and have about " + parseFloat((5 * yearMultiplier()) - (lifeDuration() / yearMultiplier())).toFixed(2) + " left. Enjoy your remaining years.";
         }
-        else if (health == 1) {
-          if (lifeDuration() < 100) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((100 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 100) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (100 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
-        }
-        else {
-          if (lifeDuration() < 5) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((5 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 5) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (5 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
+        else if (lifeDuration() >= 5) {
+          return "You are " + (lifeDuration() / yearMultiplier()).toFixed(2) + " years old on " + planet + " and have lived " + parseFloat((lifeDuration() / yearMultiplier()) - (5 * yearMultiplier())).toFixed(2) + " years past your life expectancy. Good luck not living in fear.";
         }
       }
-      else if (celestialBody == 5) {
-        if (health == 0) {
-          if (lifeDuration() < 80) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((80 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 80) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (80 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
-        }
-        else if (health == 1) {
-          if (lifeDuration() < 100) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((100 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 100) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (100 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
-        }
-        else {
-          if (lifeDuration() < 5) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((5 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 5) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (5 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
-        }
-      }
-      else if (celestialBody == 6) {
-        if (health == 0) {
-          if (lifeDuration() < 80) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((80 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 80) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (80 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
-        }
-        else if (health == 1) {
-          if (lifeDuration() < 100) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((100 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 100) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (100 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
-        }
-        else {
-          if (lifeDuration() < 5) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have about " + parseFloat((5 * xxxxxMultiplier) - (lifeDuration() / xxxxxMultiplier)).toFix(2) + " left. Enjoy your remaining years.";
-          }
-          else if (lifeDuration() >= 5) {
-            return "You are " + (lifeDuration() / xxxxxMultiplier).toFix(2) + " years old on xxxxxPlanet and have lived " + parseFloat((lifeDuration() / xxxxxMultiplier) - (5 * xxxxxMultiplier)).toFix(2) + " years past your life expectancy. Good luck not living in fear.";
-          }
-        }
-      }
-
-
     }
     $("#result").text(celestialAge());
   });
