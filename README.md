@@ -11,7 +11,7 @@
 
 ## Description
 
-A calculator that receives an inputted birth date and returns current age, life expectancy and remaining years/years past expectancy on Mercury, Venus, Earth, Mars, and Jupiter.
+A calculator that receives an inputted birth date and returns current age, life expectancy and remaining years/years past expectancy on Mercury, Venus, Earth, Mars, and Jupiter, Saturn, Uranus, Neptune, and Pluto.
 
 ## Known Bugs
 
@@ -46,20 +46,29 @@ If health is bad, life expectancy is set to a length of 10 Earth years. Years li
 | User inputs birth date, health, and selects Jupiter. (Current Earth date is Day: 31, Month: 12, (Earth) Year: 2010) | Birth Day: 31, Month: 12, (Earth) Year: 1999. Health: bad | Age on Jupiter is 0.84 years and you have lived 0.42 years past expectancy |
 
 ## Setup and Use
-Software Requirements:
+Software Requirements: Node.js and npm
 
-
-* Clone this repository [repo](https://github.com/jaredh123/HairSalon.Solution): "$ git clone https://github.com/jaredh123/HairSalon.Solution "
+* Clone this repository [repo](https://github.com/jaredh123/galactic-age-calculator): "$ git clone https://github.com/jaredh123/galactic-age-calculator".
 * To edit the project, open the project in your preferred text editor.
+* To run application, use terminal to go to the root level in the project directory.
+* Run the commands "$ npm install" to install all dependencies in the package.JSON file.
+* Run the command "$ npm run build" to build application.
+* Run the command "$ npm run start" to start application.
+* To run tests on the application run command "$ npm run test".
+*
 
 #### Prerequisites
-* Must have a working browser, and terminal.
+* Must have a working browser, terminal, Node.js, and npm.
 * Must have basic computer use proficiency
 
 ## Built With
 
 * Atom (IDE)
 * Git
+* Node.js
+* npm
+* Jasmine
+* Karma
 
 ## Contributors
 
