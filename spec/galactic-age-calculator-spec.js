@@ -52,8 +52,8 @@ describe('GalacticAgeCalculator', function() {
     let celestialBody = 5;
     let planet = galacticAgeCalculator.planet(celestialBody);
     let yearMultiplier = galacticAgeCalculator.yearMultiplier(celestialBody);
-    let lifeDuration = galacticAgeCalculator.lifeDuration(galacticAgeCalculator.d1, galacticAgeCalculator.m1, galacticAgeCalculator.yr1).toFixed(2);
-    let allCelestialAges = galacticAgeCalculator.celestialAge(galacticAgeCalculator.d1, galacticAgeCalculator.m1, galacticAgeCalculator.health, galacticAgeCalculator.celestialBody, galacticAgeCalculator.lifeDuration, galacticAgeCalculator.yearMultiplier, galacticAgeCalculator.planet)
-    expect(allCelestialAges).toEqual("You are 1072.42 years old on Mars and have lived 1029.86 years past your life expectancy. Good luck not living in fear.");
+    let lifeDuration = parseFloat(galacticAgeCalculator.lifeDuration(galacticAgeCalculator.d1, galacticAgeCalculator.m1, galacticAgeCalculator.yr1).toFixed(2));
+    let allCelestialAges = galacticAgeCalculator.celestialAge(galacticAgeCalculator.d1, galacticAgeCalculator.m1, galacticAgeCalculator.health, galacticAgeCalculator.celestialBody, lifeDuration, yearMultiplier, planet);
+    expect(allCelestialAges).toEqual("You are 1072.41 years old on Mars and have lived 1029.86 years past your life expectancy. Good luck not living in fear.");
   });
 });

@@ -103,30 +103,30 @@ export default class GalacticAgeCalculator {
       return "That date doesn't exist!";
     }
     else if (celestialBody == 1) {
-      return `How are you still alive? This is the Sun. All that you've lived is past your expectancy. The entire ${lifeDuration().toFixed(2)} years of your life don't make sense.`;
+      return `How are you still alive? This is the Sun. All that you've lived is past your expectancy. The entire ${lifeDuration.toFixed(2)} years of your life don't make sense.`;
     }
     else if (celestialBody > 1 && health == 0) {
-      if (lifeDuration() < 80) {
-        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planet()} and have about ${parseFloat((80 / yearMultiplier()) - (lifeDuration() / yearMultiplier())).toFixed(2)} years left. Enjoy your remaining years.`;
+      if (lifeDuration < 80) {
+        return `You are ${(lifeDuration / yearMultiplier).toFixed(2)} years old on ${planet} and have about ${parseFloat((80 / yearMultiplier) - (lifeDuration / yearMultiplier)).toFixed(2)} years left. Enjoy your remaining years.`;
       }
-      else if (lifeDuration() >= 80) {
-        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planet()} and have lived ${parseFloat((lifeDuration() / yearMultiplier()) - (80 / yearMultiplier())).toFixed(2)} years past your life expectancy. Good luck not living in fear.`;
+      else if (lifeDuration >= 80) {
+        return `You are ${(lifeDuration / yearMultiplier).toFixed(2)} years old on ${planet} and have lived ${parseFloat((lifeDuration / yearMultiplier) - (80 / yearMultiplier)).toFixed(2)} years past your life expectancy. Good luck not living in fear.`;
       }
     }
     else if (celestialBody > 1 && health == 1) {
-      if (lifeDuration() < 100) {
-        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planet()} and have about ${parseFloat((100 / yearMultiplier()) - (lifeDuration() / yearMultiplier())).toFixed(2)} years left. Enjoy your remaining years.`;
+      if (lifeDuration < 100) {
+        return `You are ${(lifeDuration / yearMultiplier).toFixed(2)} years old on ${planet} and have about ${parseFloat((100 / yearMultiplier) - (lifeDuration / yearMultiplier)).toFixed(2)} years left. Enjoy your remaining years.`;
       }
-      else if (lifeDuration() >= 100) {
-        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planet()} and have lived ${parseFloat((lifeDuration() / yearMultiplier()) - (100 / yearMultiplier())).toFixed(2)} years past your life expectancy. Good luck not living in fear.`;
+      else if (lifeDuration >= 100) {
+        return `You are ${(lifeDuration / yearMultiplier).toFixed(2)} years old on ${planet} and have lived ${parseFloat((lifeDuration / yearMultiplier) - (100 / yearMultiplier)).toFixed(2)} years past your life expectancy. Good luck not living in fear.`;
       }
     }
     else if (celestialBody > 1 && health == 2) {
-      if (lifeDuration() < 5) {
-        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planet()} and have about ${parseFloat((5 / yearMultiplier()) - (lifeDuration() / yearMultiplier())).toFixed(2)} years left. Enjoy your remaining years.`;
+      if (lifeDuration < 5) {
+        return `You are ${(lifeDuration / yearMultiplier).toFixed(2)} years old on ${planet} and have about ${parseFloat((5 / yearMultiplier) - (lifeDuration / yearMultiplier)).toFixed(2)} years left. Enjoy your remaining years.`;
       }
-      else if (lifeDuration() >= 5) {
-        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planet()} and have lived ${parseFloat((lifeDuration() / yearMultiplier()) - (5 / yearMultiplier())).toFixed(2)} years past your life expectancy. Good luck not living in fear.`;
+      else if (lifeDuration >= 5) {
+        return `You are ${(lifeDuration / yearMultiplier).toFixed(2)} years old on ${planet} and have lived ${parseFloat((lifeDuration / yearMultiplier) - (5 / yearMultiplier)).toFixed(2)} years past your life expectancy. Good luck not living in fear.`;
       }
     }
   }
