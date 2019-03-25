@@ -7,4 +7,14 @@ describe('xxxxxClass', function() {
     expect().toEqual();
   });
 
+  it('should xxxxx', function() {
+    test setup info;
+    expect().toEqual();
+  });
+
+  it('should xxxxx', function() {
+    test setup info;
+    expect().toEqual();
+  });
+
 });
