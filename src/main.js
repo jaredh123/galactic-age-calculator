@@ -6,18 +6,21 @@ $(document).ready(function() {
   $("#run").submit(function(event) {
     event.preventDefault();
 
-    const month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
     let galacticAgeCalculator = new GalacticAgeCalculator();
 
     let d1 = parseInt($("#day").val());
     let m1 = parseInt($("#month").val());
     let yr1 = parseInt($("#year").val());
-
     let health = parseInt($("#health").val());
-
     let celestialBody = parseInt($("#celestialBody").val());
 
-    $("#result").text(celestialAge());
+    galacticAgeCalculator = new GalacticAgeCalculator(d1, m1, yr1, health, celestialBody);
+
+    let planet = planet(celestialBody);
+    let yearMultiplier = yearMultiplier(celestialBody);
+    let lifeDuration = lifeDuration(d1, m1, yr1);
+    let allCelestialAges = galacticAgeCalculator.celestialAge(d1, m1, health, celestialBody, lifeDuration, yearMultiplier, planet);
+
+    $("#result").text(allCelestialAges);
   });
 });

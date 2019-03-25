@@ -1,6 +1,13 @@
 export default class GalacticAgeCalculator {
+  constructor(d1, m1, yr1, health, celestialBody) {
+    this.d1 = d1;
+    this.m1 = m1;
+    this.yr1 = yr1;
+    this.health = health;
+    this.celestialBody = celestialBody;
+  }
 
-  planetMultiplier(celestialBody) {
+  planet(celestialBody) {
     if (celestialBody == 2) {
       return "Mercury";
     }
@@ -15,6 +22,18 @@ export default class GalacticAgeCalculator {
     }
     else if (celestialBody == 6) {
       return "Jupiter";
+    }
+    else if (celestialBody == 7) {
+      return "Saturn";
+    }
+    else if (celestialBody == 8) {
+      return "Uranus";
+    }
+    else if (celestialBody == 9) {
+      return "Neptune";
+    }
+    else if (celestialBody == 10) {
+      return "Pluto";
     }
   }
 
@@ -34,9 +53,22 @@ export default class GalacticAgeCalculator {
     else if (celestialBody == 6) {
       return 11.86;
     }
+    else if (celestialBody == 7) {
+      return 29.46;
+    }
+    else if (celestialBody == 8) {
+      return 84;
+    }
+    else if (celestialBody == 9) {
+      return 164.8;
+    }
+    else if (celestialBody == 10) {
+      return 248.09;
+    }
   }
 
-  lifeDuration(m1, yr1, date, month) {
+  lifeDuration(d1, m1, yr1) {
+    const month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let date = new Date();
     let dayCount = month[m1 - 1] - d1 + date.getDate();
     let yrCount = date.getFullYear() - yr1 - 1;
@@ -62,7 +94,8 @@ export default class GalacticAgeCalculator {
     return yrCount + parseFloat((mDayCount + dayCount) / 365);
   }
 
-  celestialAge(d1, month, health, celestialBody, lifeDuration, yearMultiplier, planetMultiplier) {
+  celestialAge(d1, m1, health, celestialBody, lifeDuration, yearMultiplier, planet) {
+    const month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     if (celestialBody == 0) {
       alert("Please select a celestial body");
     }
@@ -74,26 +107,26 @@ export default class GalacticAgeCalculator {
     }
     else if (celestialBody > 1 && health == 0) {
       if (lifeDuration() < 80) {
-        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planetMultiplier()} and have about ${parseFloat((80 / yearMultiplier()) - (lifeDuration() / yearMultiplier())).toFixed(2)} years left. Enjoy your remaining years.`;
+        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planet()} and have about ${parseFloat((80 / yearMultiplier()) - (lifeDuration() / yearMultiplier())).toFixed(2)} years left. Enjoy your remaining years.`;
       }
       else if (lifeDuration() >= 80) {
-        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planetMultiplier()} and have lived ${parseFloat((lifeDuration() / yearMultiplier()) - (80 * yearMultiplier())).toFixed(2)} years past your life expectancy. Good luck not living in fear.`;
+        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planet()} and have lived ${parseFloat((lifeDuration() / yearMultiplier()) - (80 / yearMultiplier())).toFixed(2)} years past your life expectancy. Good luck not living in fear.`;
       }
     }
     else if (celestialBody > 1 && health == 1) {
       if (lifeDuration() < 100) {
-        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planetMultiplier()} and have about ${parseFloat((100 / yearMultiplier()) - (lifeDuration() / yearMultiplier())).toFixed(2)} years left. Enjoy your remaining years.`;
+        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planet()} and have about ${parseFloat((100 / yearMultiplier()) - (lifeDuration() / yearMultiplier())).toFixed(2)} years left. Enjoy your remaining years.`;
       }
       else if (lifeDuration() >= 100) {
-        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planetMultiplier()} and have lived ${parseFloat((lifeDuration() / yearMultiplier()) - (100 * yearMultiplier())).toFixed(2)} years past your life expectancy. Good luck not living in fear.`;
+        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planet()} and have lived ${parseFloat((lifeDuration() / yearMultiplier()) - (100 / yearMultiplier())).toFixed(2)} years past your life expectancy. Good luck not living in fear.`;
       }
     }
     else if (celestialBody > 1 && health == 2) {
       if (lifeDuration() < 5) {
-        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planetMultiplier()} and have about ${parseFloat((5 / yearMultiplier()) - (lifeDuration() / yearMultiplier())).toFixed(2)} years left. Enjoy your remaining years.`;
+        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planet()} and have about ${parseFloat((5 / yearMultiplier()) - (lifeDuration() / yearMultiplier())).toFixed(2)} years left. Enjoy your remaining years.`;
       }
       else if (lifeDuration() >= 5) {
-        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planetMultiplier()} and have lived ${parseFloat((lifeDuration() / yearMultiplier()) - (5 * yearMultiplier())).toFixed(2)} years past your life expectancy. Good luck not living in fear.`;
+        return `You are ${(lifeDuration() / yearMultiplier()).toFixed(2)} years old on ${planet()} and have lived ${parseFloat((lifeDuration() / yearMultiplier()) - (5 / yearMultiplier())).toFixed(2)} years past your life expectancy. Good luck not living in fear.`;
       }
     }
   }
