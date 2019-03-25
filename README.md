@@ -11,7 +11,7 @@
 
 ## Description
 
-A calculator that receives an inputted birth date and returns current age, life expectancy and remaining years/years past expectancy on Mercury, Venus, Earth, Mars, and Jupiter, Saturn, Uranus, Neptune, and Pluto.
+A calculator that receives an inputted birth date and returns current age, life expectancy and remaining years/years past expectancy on the Sun, Mercury, Venus, Earth, Mars, and Jupiter, Saturn, Uranus, Neptune, and Pluto.
 
 ## Known Bugs
 
