@@ -19,9 +19,9 @@ $(document).ready(function() {
 
     galacticAgeCalculator = new GalacticAgeCalculator(d1, m1, yr1, health, celestialBody, currentDate, currentMonth, currentYear);
 
-    let planet = planet(celestialBody);
-    let yearMultiplier = yearMultiplier(celestialBody);
-    let lifeDuration = lifeDuration(d1, m1, yr1, currentDate, currentMonth, currentYear);
+    let planet = galacticAgeCalculator.planet(celestialBody);
+    let yearMultiplier = galacticAgeCalculator.yearMultiplier(celestialBody);
+    let lifeDuration = galacticAgeCalculator.lifeDuration(d1, m1, yr1, currentDate, currentMonth, currentYear);
     let allCelestialAges = galacticAgeCalculator.celestialAge(d1, m1, health, celestialBody, lifeDuration, yearMultiplier, planet);
 
     $("#result").text(allCelestialAges);
