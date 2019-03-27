@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import GalacticAgeCalculator from './galactic-age-calculator.js'
-// import './styles.css';
 
 $(document).ready(function() {
   $("#run").submit(function(event) {
@@ -13,12 +12,16 @@ $(document).ready(function() {
     let yr1 = parseInt($("#year").val());
     let health = parseInt($("#health").val());
     let celestialBody = parseInt($("#celestialBody").val());
+    let date = new Date();
+    let currentDate = parseInt(date.getDate());
+    let currentMonth = parseInt(date.getMonth());
+    let currentYear = parseInt(date.getFullYear());
 
-    galacticAgeCalculator = new GalacticAgeCalculator(d1, m1, yr1, health, celestialBody);
+    galacticAgeCalculator = new GalacticAgeCalculator(d1, m1, yr1, health, celestialBody, currentDate, currentMonth, currentYear);
 
     let planet = planet(celestialBody);
     let yearMultiplier = yearMultiplier(celestialBody);
-    let lifeDuration = lifeDuration(d1, m1, yr1);
+    let lifeDuration = lifeDuration(d1, m1, yr1, currentDate, currentMonth, currentYear);
     let allCelestialAges = galacticAgeCalculator.celestialAge(d1, m1, health, celestialBody, lifeDuration, yearMultiplier, planet);
 
     $("#result").text(allCelestialAges);

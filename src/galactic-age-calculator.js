@@ -1,10 +1,13 @@
 export default class GalacticAgeCalculator {
-  constructor(d1, m1, yr1, health, celestialBody) {
+  constructor(d1, m1, yr1, health, celestialBody, currentDate, currentMonth, currentYear) {
     this.d1 = d1;
     this.m1 = m1;
     this.yr1 = yr1;
     this.health = health;
     this.celestialBody = celestialBody;
+    this.currentDate = currentDate;
+    this.currentMonth = currentMonth;
+    this.currentYear = currentYear;
   }
 
   planet(celestialBody) {
@@ -67,11 +70,10 @@ export default class GalacticAgeCalculator {
     }
   }
 
-  lifeDuration(d1, m1, yr1) {
+  lifeDuration(d1, m1, yr1, currentDate, currentMonth, currentYear) {
     const month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    let date = new Date();
-    let dayCount = month[m1 - 1] - d1 + date.getDate();
-    let yrCount = date.getFullYear() - yr1 - 1;
+    let dayCount = month[m1 - 1] - d1 + currentDate;
+    let yrCount = currentYear - yr1 - 1;
     let mDayCount = 0;
     for (let i = m1 + 1; i <= month.length; i++) {
       if ((yr1 % 4 === 0) && (yr1 % 100 !== 0) || (yr1 % 400 === 0)) {
@@ -82,8 +84,8 @@ export default class GalacticAgeCalculator {
       }
       mDayCount += month[i - 1];
     }
-    for (let i = 0; i < date.getMonth(); i++) {
-      if ((date.getFullYear() % 4 === 0) && (date.getFullYear() % 100 !== 0) || (date.getFullYear() % 400 === 0)) {
+    for (let i = 0; i < currentMonth; i++) {
+      if ((currentYear % 4 === 0) && (currentYear % 100 !== 0) || (currentYear % 400 === 0)) {
         month[1] = 29;
       }
       else {
