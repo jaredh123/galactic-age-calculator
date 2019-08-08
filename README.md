@@ -63,12 +63,12 @@ Software Requirements: Node.js and npm
 
 ## Built With
 
-* Atom (IDE)
-* Git
+* JavaScript
 * Node.js
 * npm
 * Jasmine
 * Karma
+* Webpack
 
 ## Contributors
 
